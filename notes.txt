@@ -1,0 +1,64 @@
+features learnt in this course: 
+
+
+
+
+---------------------------------
+- user schema and models
+- 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+LECTURE - 3 (SERVER):
+    create a folder named server( mkdir server )
+    install express: (npm i express)
+    try to run it : using (npm run start), if it shows error then change the port
+
+    TO run the script : 
+        node relative_path_of_the_server.js or
+    use nodemon command
+        install : nodemon (npm i nodemon): this will help the server to restart whenever you make changes in the code 
+        for running the nodemon : 
+            npx nodemon relative_path_of_the_server.js
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+LECTURE - 4 (EXPRESS ROUTERS): 
+    with the use of routers we make sure that the code looks clean with ALL THE ROUTES IN THE ROUTER FOLDER and the main_program(i.e, server) in server.js
+    create a new folder "router" inside server folder
+    create a new file under it (auth-router.js)
+
+    whenever we are using router, these things are necessary:
+        to import the router, mount it 
+        to use app.use("api/auth", router), in server.js to tell it that dont focus on app.get(/) things, 
+            so what happens the moment it comes to the line : app.use("api/auth", router), it will go to auth-router.js
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+LECTURE - 5 (CONTROLLERS) :
+    controllers will contain all the methods/functions used inside the router
+    create a folder inside server with name "controllers"
+    Inside controllers folder:
+        create auth-controller.js: 
+            this will contain all the functions used in the router.js file
+    for projects in express js, always go with async functions 
+        if an async fun is used, then catch the error if it throws any with try catch, [or use express js package i.e, express-async-errors to handle them: advanced ]
+
+    Inside controller, we define all the functions that we use in the router, thats it..
+    router will call the controller functions
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+LECTURE - 6 (User registration in Express.js with postman) :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
