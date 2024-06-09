@@ -69,7 +69,7 @@ LECTURE - 6 (User registration in Express.js with postman) :
     if you get response as { msg: {} },
     then you might have not set the header: Content-Type = application/json
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-LECTURE - 7 (User registration in Express.js with postman) :
+LECTURE - 7 (Connecting Backend with MongoDB) :
 
 
 
