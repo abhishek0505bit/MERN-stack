@@ -5,6 +5,9 @@ const express = require('express');
 // this app object is used to configure the application routes and behavior, In short, creating an express app
 const app = express();
 
+// express.json() is a middleware provided by Express to parse JSON request bodies to javascript object
+app.use(express.json());
+
 // Import the router from ./router/auth-router
 const router = require('./router/auth-router');
 
@@ -13,7 +16,7 @@ app.get('/',(req, res)=>{
     res.status(200).send("This is local host with port 3000")
 })
 
-// Mount the router on /api/auth: Refer documentation: README.md [Mounting the Router on `/api/auth` Path]
+// Mount the router on /api/auth: Refer documentation: Documentation.md [Mounting the Router on `/api/auth` Path]
 app.use('/api/auth', router);
 
 // This line defines the port number on which the server will listen for incoming requests. Here, the server will listen on port 3000.

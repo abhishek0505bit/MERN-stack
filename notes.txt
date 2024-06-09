@@ -42,6 +42,34 @@ LECTURE - 5 (CONTROLLERS) :
     router will call the controller functions
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 LECTURE - 6 (User registration in Express.js with postman) :
+    you can download postman extension as well in your vs code..
+    here we are creating new data i.e, user is performing registration operation
+        Inside auth router, we change the registration method from get to post
+
+    on successful execution of request, it should respond as : res.status(200).json({msg: req.body})
+    req.body is the data that we are sending from the postman
+
+    when hitting a post request from postman for the registration with the url : http://localhost:3000/api/auth/register,
+    header as : Content-Type: application/json, (which tells that you are passing the request in json format)
+    and the body as : 
+    {
+    "username": "abhishek",
+    "email": "abhi@gmail.com"
+    }
+    , you may get {}, empty response in the postman
+    to fix that you have to tell in the code in server.js , that express needs to handle the json data
+        Inside server.js, use the command : app.use(express.json());
+            This statement tells that you can use the json format under this file..
+    now if you hit the post request, then you can see the response in json format
+
+    NOTE:
+    if you get response as {}, 
+    then you might have not used app.use(express.json()), before hitting the post request
+
+    if you get response as { msg: {} },
+    then you might have not set the header: Content-Type = application/json
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+LECTURE - 7 (User registration in Express.js with postman) :
 
 
 

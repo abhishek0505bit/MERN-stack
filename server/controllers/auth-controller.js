@@ -11,7 +11,8 @@ const home = async (req, res) => {
 
 const register = (req, res)=>{
     try {
-        res.send('this is registration page')
+
+        res.status(200).json({msg: req.body})
     } catch (error) {
         res.send('error').status(400);
     }

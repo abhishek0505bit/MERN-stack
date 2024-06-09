@@ -13,9 +13,9 @@ const router = express.Router();
 router.get('/', authController.home)
 
 // this is the way of writing the routes using controllers
-router.route('/users').get(authController.users)
+router.route('/users').get(authController.users)// get means to read the data
 
-router.route('/register').get(authController.register)
+router.route('/register').post(authController.register)// post means to insert, to post the data to the database
 
 
 // this is used to export this router to use it in server.js with name router
