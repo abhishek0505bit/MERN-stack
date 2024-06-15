@@ -70,6 +70,21 @@ LECTURE - 6 (User registration in Express.js with postman) :
     then you might have not set the header: Content-Type = application/json
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 LECTURE - 7 (Connecting Backend with MongoDB) :
+    go to mongo db atlas:
+        sign in, 
+        choose free category for cluster
+        then once cluster is created, (check that you have some data in database access and network acccess)
+        go to database, click on connect, choose mongoDB compass option.. and paste the connection string in compass
+    install mongoose package: npm i mongoose
+
+    create utils folder inside server folder.
+        inside that : create db.js
+
+    Install dot env for env files: npm install dotenv
+
+    connectDB is used to establish connection to local database or atlas server..
+    the code will still run without connectDB but it wont store anything or retrieve anything from the database since connectDB is not used.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 

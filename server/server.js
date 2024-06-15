@@ -1,7 +1,7 @@
 
 // this line imports express.js framework module
 const express = require('express');
-
+const db = require('./utils/db');
 // this app object is used to configure the application routes and behavior, In short, creating an express app
 const app = express();
 
@@ -10,6 +10,7 @@ app.use(express.json());
 
 // Import the router from ./router/auth-router
 const router = require('./router/auth-router');
+const connectDB = require('./utils/db');
 
 // this means that when the user goes to the address: 'url/', it will respond with the given output
 app.get('/',(req, res)=>{
@@ -22,10 +23,14 @@ app.use('/api/auth', router);
 // This line defines the port number on which the server will listen for incoming requests. Here, the server will listen on port 3000.
 const port = 3000;
 
-// Start the server and listen on the specified port
-app.listen(port, ()=>{
-    console.log(`server is running on port ${port}`)
+connectDB().then(()=>{
+
+    app.listen(port, ()=>{
+        console.log(`server is running on port ${port}`)
+    })
 })
+// Start the server and listen on the specified port
+
 
 
 
