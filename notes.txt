@@ -85,6 +85,92 @@ LECTURE - 7 (Connecting Backend with MongoDB) :
     connectDB is used to establish connection to local database or atlas server..
     the code will still run without connectDB but it wont store anything or retrieve anything from the database since connectDB is not used.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+LECTURE - 8 (Securing your private data with dotenv in our backend app) :
+    you can use dot env vault extension and dot env package to hide and get the data from dot env respectively..
+    follow the instructions for dotenv vault and push the data to the "dotenv" vault using : npx dotenv-vault@latest push
+    Install dotenv-vault: npm install dotenv-vault
+    Initialize your project with Dotenv Vault by running: npx dotenv-vault new
+
+    -> keep the .env file in the .gitignore file
+
+    how does developer b(other person whom I share this repo) will be able to access the env values:
+        Yes, that's correct. When Developer B clones the repository from Developer A, the `.env` file will not be present if it is not committed to the version control system. This is a common practice to keep sensitive information, like environment variables, out of the source code repository for security reasons.
+        Instead, the `.env.vault` file will be present, and Developer B will need to perform certain steps to access the environment variables securely. Here's a recap of the steps and how it works:
+
+        Steps for Developer B to Access Environment Variables
+ˀ
+            1. Clone the Repository
+                Developer B clones the repository from Developer A.
+
+                ```bash
+                git clone <repository-url>
+                ```
+
+            2. Set the DOTENV_KEY
+                Developer B needs to set the `DOTENV_KEY` that was shared with them. This key is used to decrypt the `.env.vault` file.
+
+                ```bash
+                export DOTENV_KEY="your_shared_key_here"
+                ```
+
+            3. Pull the Environment Variables
+                Developer B runs the `npx dotenv-vault pull` command to decrypt the `.env.vault` file and create a local `.env` file with the environment variables.
+
+                ```bash
+                npx dotenv-vault pull
+                ```
+
+                What Developer B Sees After Setting the Key and Pulling
+
+                - .env File
+                After running the `npx dotenv-vault pull` command, Developer B will have a `.env` file generated in the root directory of the project. This file will contain the decrypted environment variables.
+
+                ```env
+                MONGO_URI=mongodb://127.0.0.1:27017/new_database
+                MONGO_ATLAS_URI=mongodb+srv://abhishekyadav0505:password@cluster0.4qfgez7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+                ```
+
+             Summary 1:
+
+                - Without Setting the `DOTENV_KEY`: The `.env` file will not be present, and Developer B won't have access to the environment variables.
+                - With Setting the `DOTENV_KEY` and Pulling: The `.env` file will be generated with the decrypted environment variables, and Developer B will be able to run the project with the correct configurations.
+
+                Ensuring Security
+
+                - Secure Sharing: By using the `.env.vault` mechanism and sharing the `DOTENV_KEY` securely, you ensure that sensitive information like passwords and API keys are not exposed in the version control system.
+                - Independent Configuration: Developer B can create their own `.env` file manually if they choose not to use the shared environment variables, allowing them to work with their own configurations independently.
+
+            By following these practices, you can securely manage environment variables across different developers working on the same project.
+
+            SUMMARY 2: 
+                
+                Developer A:
+                    Create a .env file with environment variables.
+                    Initialize dotenv-vault and obtain the DOTENV_KEY.
+                    Share the DOTENV_KEY securely with Developer B.
+                
+                Developer B:
+                    Clone the repository.
+                    Set the DOTENV_KEY and pull the environment variables using npx dotenv-vault pull.
+                    ˀ
+
+            SUMMARY 3:
+                Developer A:  
+                    Install .env and .env vault: npm install dotenv dotenv-vault
+                    create a .env file
+                    Initialize .env vault: npx dotenv-vault build
+                    Get the .env keys: npx dotenv-vault keys
+                    share the respective key with the person B, you can check git vault website to check.. which environment key you need to share with developer B.
+
+                Developer B: 
+                    clones the repository.: git clone <repository-url>
+                    sets the DOTENV_KEY environment variable using the key provided by Developer A.:
+                        export DOTENV_KEY="dotenv://:key_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@dotenv.org/vault/.env.vault?environment=development"
+                    Pull the Environment Variables: npx dotenv-vault pull
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+LECTURE - 9 (Creating the user schema and and model for the user Registration in mern application) :
+    
+
 
 
 

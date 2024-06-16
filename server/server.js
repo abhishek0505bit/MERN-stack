@@ -1,7 +1,6 @@
 
 // this line imports express.js framework module
 const express = require('express');
-const db = require('./utils/db');
 // this app object is used to configure the application routes and behavior, In short, creating an express app
 const app = express();
 
